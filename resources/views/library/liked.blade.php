@@ -1,0 +1,3 @@
+@extends('layouts.app')
+@section('title','Bài hát đã thích')
+@section('content')<h1 class="section-title mb-1">Bài hát đã thích</h1><p class="text-muted mb-4">{{ $songs->total() }} bài trong thư viện.</p><div class="row g-4" data-song-collection>@forelse($songs as $song)<div class="col-6 col-md-4 col-xl-3 col-xxl-2">@include('partials.song-card')</div>@empty<div class="col-12"><div class="glass-card p-5 text-center"><i class="bi bi-heart fs-1 text-muted"></i><h3 class="mt-3">Chưa có bài hát yêu thích</h3><a class="btn btn-accent mt-2" href="{{ route('search') }}">Khám phá âm nhạc</a></div></div>@endforelse</div><div class="mt-4">{{ $songs->links() }}</div>@endsection
